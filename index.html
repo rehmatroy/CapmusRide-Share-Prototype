@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campus Ride Share</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: linear-gradient(to right, #4CAF50, #2196F3);
+      color: #fff;
+      padding: 20px;
+    }
+    header {
+      text-align: center;
+      padding: 30px;
+    }
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1.2em;
+    }
+    .buttons {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .buttons button {
+      background: #ffeb3b;
+      color: #000;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1em;
+      margin: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .buttons button:hover {
+      transform: scale(1.1);
+    }
+    .ride-section {
+      background-color: #ffffff22;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+    .ride-section h2 {
+      margin-bottom: 15px;
+      color: #fff;
+    }
+    .ride-card {
+      background: #fff;
+      color: #333;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 8px;
+    }
+    .ride-card strong {
+      color: #4CAF50;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    input, select {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+    button.submit-btn {
+      background-color: #2196F3;
+      color: #fff;
+      font-weight: bold;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Campus Ride Share</h1>
+    <p>Connecting students and staff for eco-friendly commuting!</p>
+  </header>
+  <div class="buttons">
+    <button onclick="showOfferRide()">🚗 Offer a Ride</button>
+    <button onclick="showFindRide()">📍 Find a Ride</button>
+  </div>
+
+  <div class="ride-section" id="rideSection">
+    <h2>Welcome! Click a button to get started.</h2>
+  </div>
+
+  <script>
+    const rideSection = document.getElementById('rideSection');
+
+    function showOfferRide() {
+      rideSection.innerHTML = `
+        <h2>Offer a Ride</h2>
+        <form onsubmit="event.preventDefault(); alert('Ride Posted!');">
+          <input type="text" placeholder="Pickup Location" required>
+          <input type="text" placeholder="Drop-off Location" required>
+          <input type="time" required>
+          <select required>
+            <option value="">Seats Available</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+          <button class="submit-btn" type="submit">Post Ride</button>
+        </form>
+      `;
+    }
+
+    function showFindRide() {
+      rideSection.innerHTML = `
+        <h2>Available Rides</h2>
+        <div class="ride-card">
+          <p><strong>Driver:</strong> Ali Khan</p>
+          <p><strong>From:</strong> Hostel Block</p>
+          <p><strong>To:</strong> City Park</p>
+          <p><strong>Time:</strong> 4:30 PM</p>
+          <p><strong>Seats:</strong> 2 Left</p>
+          <button onclick="alert('Ride Joined!')">Join Ride</button>
+        </div>
+        <div class="ride-card">
+          <p><strong>Driver:</strong> Sana Fatima</p>
+          <p><strong>From:</strong> Library Gate</p>
+          <p><strong>To:</strong> Airport Road</p>
+          <p><strong>Time:</strong> 5:15 PM</p>
+          <p><strong>Seats:</strong> 1 Left</p>
+          <button onclick="alert('Ride Joined!')">Join Ride</button>
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>
