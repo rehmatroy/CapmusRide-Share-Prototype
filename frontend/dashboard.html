@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ride Share Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Ride Share Dashboard</h1>
+    <p id="welcomeText"></p>
+
+    <div id="providerSection" style="display:none;">
+      <h2>Add Ride</h2>
+      <form onsubmit="addRide(event)">
+        <input type="text" id="pickup" placeholder="Pickup Location" required>
+        <input type="text" id="dropoff" placeholder="Dropoff Location" required>
+        <input type="date" id="date" required>
+        <input type="time" id="time" required>
+        <input type="number" id="seats" placeholder="Number of Seats" min="1" required>
+        <button type="submit">Add Ride</button>
+      </form>
+    </div>
+
+    <div id="riderSection" style="display:none;">
+      <h2>Available Rides</h2>
+      <div id="availableRides"></div>
+    </div>
+
+    <div id="analysisSection">
+      <h2>Ride Analysis</h2>
+      <button onclick="showAnalysis()">Show Analysis</button>
+      <div id="analysisResult"></div>
+    </div>
+
+    <button onclick="logout()" style="margin-top:20px;">Logout</button>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
